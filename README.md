@@ -16,6 +16,7 @@
 
 - Basic parameters and expressions exist — but anything beyond simple math quickly becomes fragile
 - Referencing values across parts or assemblies (e.g. one part’s tab width = another’s slot) is possible only through brittle measurement-driven links, external references, or global variable hacks
+- Although advanced CAD systems like NX and Creo provide mechanisms such as WAVE linking for robust cross-part references, these implementations depend heavily on opaque GUI-driven workflows and layered state contexts, making them hard to track, audit, or manage through version control
 - Assembly structure changes often break rebuilds with no clear cause
 - There’s no support for `if`, `for`, `function`, or structured reuse across parts
 - Any complex constraint or dependency logic must be recreated manually via GUI operations — with no way to see or diff what’s going on
