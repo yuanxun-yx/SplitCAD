@@ -35,11 +35,15 @@ SplitCAD is built on two core ideas:
 
 ```
 models/enclosure.yaml     # source (Git-tracked)
+output/enclosure.cache    # intermediate geometry (not Git-tracked)
 output/enclosure.step     # result (built from source)
 ```
 
 - Git tracks what matters: modeling intent
 - CI can rebuild geometry from clean source
+- Exported formats like `.step` are final outputs, not modeling state
+- Intermediate files (like `.cache.cad`) store geometry to speed up GUI preview or CI testing, similar to `.o` files in software builds
+- Build speed is not critical: geometry generation can be slower as long as results are cached, just like compilation in code projects
 - GitHub diffs show `length: 10 -> 12`, not hex dumps
 
 ## 🖱️ How it Works
