@@ -84,4 +84,4 @@ You model visually, and the system writes a structured, trackable source file be
 
 This is a **proposal** for a better CAD workflow paradigm.
 
-I do not plan to build this myself — but I hope it can inspire discussion or implementation by others. Feel free to fork, share, or reuse the ideas.
+I do not plan to build this myself — but I hope it can inspire discussion or implementation by others. Feel free to fork, share, or reuse the ideas for as long as your project is either **open source** or **non-commercial**.
