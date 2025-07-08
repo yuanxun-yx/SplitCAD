@@ -44,6 +44,7 @@ output/enclosure.step     # result (built from source)
 - Intermediate files (like `.cache.cad`) store geometry to speed up GUI preview or CI testing, similar to `.o` files in software builds
 - Build speed is not critical: geometry generation can be slower as long as results are cached, just like compilation in code projects
 - GitHub diffs show `length: 10 -> 12`, not hex dumps
+- **AI-friendly**: With human-readable source files instead of opaque binaries, it's possible to train LLMs to analyze, repair, or generate CAD logic — similar to AI-assisted programming.
 
 ## 🖱️ How it Works
 
