@@ -5,32 +5,31 @@
 
 ## ❌ What’s Broken in Today’s CAD
 
-### 🔄 Git can’t track CAD files
+### 🔒 Proprietary, binary formats
 
-* Files like `.sldprt` or `.f3d` are opaque binary blobs
-* Even a tiny change shows up as a meaningless binary diff
-* You can't review, merge, or collaborate cleanly
-* PDM systems are heavy, locked-down, and hostile to Git workflows
+* Most mainstream tools (SolidWorks, NX, Creo, Fusion 360, CATIA, Inventor, etc) store models in opaque, undocumented binary blobs — unreadable to humans and incompatible with Git
+* Even small changes produce noisy diffs, making version control, collaboration, and peer review difficult or impossible
+* PDM systems are heavyweight, locked-in, and fundamentally hostile to the Git-based workflows used in modern software and hardware development
 
-### 🧩 Parametric logic is fragile, limited, and hard to manage
+### 🧱 Text-based ≠ Git-friendly
 
-* Cross-part references rely on absolute paths — breaking easily when assemblies are moved or renamed
-* There’s no support for modularity — expressions can’t be scoped across files, reused as functions, or composed into structured logic
-* Failures from circular dependencies or broken links are hard to trace, with no clear logs or dependency graph
-* All logic must be rebuilt through the GUI, with no way to automate or replicate via scripts
+* Some systems (e.g. OpenSCAD, FreeCAD’s zipped .FCStd, or DXF) offer technically readable formats
+* But they mix modeling intent (sketches, constraints, feature parameters) with geometry results (BREP, mesh, solver data, caches, etc.)
+* Without strict source/result separation, even text formats remain noisy and unreliable in Git — diffs are polluted, changes misleading, and true modeling logic gets buried
 
+### 🧩 Parametric logic is fragile and opaque
+
+* Systems like NX or Creo provide powerful parametric tools — but compared to code, they still lack modularity, reuse, and transparent dependency management
+* Cross-part references often rely on absolute paths, measurement links, or external references that break easily
+* There’s no way to define scoped variables, reusable functions, or modular logic blocks across parts
+* Logic is encoded via GUI interactions, with no textual diff, audit trail, or reuse
+* Failures from circular dependencies or bad rebuild order are hard to diagnose — there’s no dependency graph or logs
 
 ## ✅ A Better Paradigm: CAD like Code
 
 SplitCAD is built on two core ideas:
 
-### 1. GUI-first, logic-tracked
-
-* Model your part in a clean, visual interface
-* Every feature (sketch, extrude, pattern, etc) maps to an explicit source entry
-* No hidden state - everything is tracked and reproducible
-
-### 2. Source/Result separation — like code and build artifacts
+### 🔨 Source/Result separation — like code and build artifacts
 
 | Concept        | Software Project      | SplitCAD                      |
 | -------------- | --------------------- | ----------------------------- |
@@ -49,6 +48,13 @@ SplitCAD is built on two core ideas:
 * GitHub diffs show `length: 10 -> 12`, not hex dumps
 * **AI-friendly**: With human-readable source files instead of opaque binaries, it's possible to train LLMs to analyze, repair, or generate CAD logic — similar to AI-assisted programming.
 
+### 🖱️ GUI-first, logic-tracked
+
+* Tools like CadQuery already adopt a source/result separation model — but they are code-first, not GUI-first, which makes them less accessible to most mechanical engineers
+* Visual modeling is inherently spatial and interactive; requiring users to write code for every action breaks this intuitive workflow
+* In contrast, our approach is GUI-first: users work visually, while every feature (sketch, extrude, pattern, etc) maps to an explicit source entry
+* No hidden state — everything is tracked and reproducible
+
 These ideas are not hypothetical. Tools like [KiCad](https://kicad.org/) have already proven the value of GUI-first, Git-native workflows in hardware design. KiCad stores structured text files (`.kicad_pcb`, `.sch`), enables readable diffs and reviewable PRs, and integrates cleanly with CI pipelines (e.g. [KiBot](https://github.com/INTI-CMNB/KiBot)). SplitCAD extends this proven paradigm to the domain of 3D mechanical CAD.
 
 ## 🧠 Lessons from Compiler History
@@ -57,13 +63,6 @@ Like compilers before GCC or LLVM, CAD tools have long been opaque, closed, and 
 
 **CAD may be next.**
 Open geometry kernels like Open Cascade could fill the role LLVM played for compilers — providing a foundation for analysis, AI tooling, and new user paradigms.
-
-## 🤝 Who is this for?
-
-* Engineers tired of binary CAD files in Git
-* Small teams without expensive PDM systems
-* Hardware projects that want to work like software
-* Developers who want PRs and semantic diffs, not blobs
 
 ## 📌 Status
 
