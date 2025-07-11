@@ -1,7 +1,7 @@
 
 # SplitCAD
 
-> A GUI-first, Git-native CAD system — like KiCad, but for 3D mechanical design
+**Can we build mechanical 3D models like compiling a codebase?**
 
 ## ❌ What’s Broken in Today’s CAD
 
