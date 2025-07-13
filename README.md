@@ -55,7 +55,15 @@ SplitCAD is built on two core ideas:
 * In contrast, our approach is GUI-first: users work visually, while every feature (sketch, extrude, pattern, etc) maps to an explicit source entry
 * No hidden state — everything is tracked and reproducible
 
+### 🧪 A proven model: KiCad for PCB design
+
 These ideas are not hypothetical. Tools like [KiCad](https://kicad.org/) have already proven the value of GUI-first, Git-native workflows in hardware design. KiCad stores structured text files (`.kicad_pcb`, `.sch`), enables readable diffs and reviewable PRs, and integrates cleanly with CI pipelines (e.g. [KiBot](https://github.com/INTI-CMNB/KiBot)). SplitCAD extends this proven paradigm to the domain of 3D mechanical CAD.
+
+### ☁️ What about Onshape?
+
+Onshape proves that a fully Git-compatible modeling paradigm is possible — with real branching, merging, and per-feature diffs built into the modeling workflow.
+However, it’s a proprietary, cloud-only platform. You can’t download or self-host your models, nor access the source in an open format.
+SplitCAD aims to offer the same structured clarity and Git-native workflows — but with local control, offline editing, and fully open source.
 
 ## 🧠 Lessons from Compiler History
 
