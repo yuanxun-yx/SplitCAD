@@ -65,6 +65,15 @@ Onshape proves that a fully Git-compatible modeling paradigm is possible — wit
 However, it’s a proprietary, cloud-only platform. You can’t download or self-host your models, nor access the source in an open format.
 SplitCAD aims to offer the same structured clarity and Git-native workflows — but with local control, offline editing, and fully open source.
 
+## 🔧 The Backend Gap: Open vs. Industrial Kernels
+
+Everything above focuses on the **front-end**.
+But CAD ultimately depends on the geometry kernel — the engine that computes BREP, intersections, booleans, and parametric updates.
+
+Open-source options like Open Cascade exist, but still fall short of industrial-grade engines like Parasolid or ACIS in robustness, precision, and performance.
+
+This backend limitation constrains how far even the best front-end design can go.
+
 ## 🧠 Lessons from Compiler History
 
 Like compilers before GCC or LLVM, CAD tools have long been opaque, closed, and expensive. Once compilers became open and standardized, the ecosystem flourished — from static analysis to AI tooling.
